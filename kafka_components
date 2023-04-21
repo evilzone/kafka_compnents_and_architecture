@@ -1,0 +1,34 @@
+kafka components:
+----------------
+
+- Producer: publish message/ events
+- Consumer: receive message/ events
+- Broker: kafka server
+    - the kafka broker is nothing but just a server. In simple words, a broker is just an intermediate
+       entity that helps in message exchanges between a producer and a consumer.
+- Cluster: multiple brokers inside a kafka cluster
+- Topic: create multiple topic to store different types of messages
+    - segregate different event types to different topics
+    - it specifies the category of the message or the classification of the message.
+       listeners can then just respond to the messages that belong to the topics they are listening on
+- Partitions
+- Offset
+- Consumer groups
+    - payment_consumer_group
+    - multiple consumers in the group
+    - any partition can be read by any consumer that will be decided by coordinator
+    - extra consumers will sit idle
+    - if consumer if rejected, then idle consumer will consumer events
+        this is called re-balancing
+- Zookeeper
+    -zookeeper is a pre-requisite for kafka. kafka is a distributed system, and
+        zookeeper for coordination and to track the status of kafka cluster nodes.
+        it also keeps track of kafka topics, partitions, offsets, etc.
+
+- kafka cluster can have one or more servers (brokers)
+- kafka server can have one or more topics
+- each topic can have multiple partitions
+- producer can publish event and it can sit in any of the partitions in the topic
+    based on the round-robin applications
+- In kafka, a sequence number is assigned to each message in each partition of a kafka topic
+    - this sequence number is called offset
